@@ -1,0 +1,52 @@
+import telegram
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+# Set up the Telegram bot token and chat ID
+bot_token = 'YOUR_BOT_TOKEN_HERE'
+chat_id = 'YOUR_CHAT_ID_HERE'
+
+# Set up the keywords and exclusion keywords to search for
+keywords = ['keyword1', 'keyword2', 'keyword3']
+exclusion_keywords = ['exclusion1', 'exclusion2', 'exclusion3']
+
+# Set up the chats to search in
+chats_to_search = ['chat1', 'chat2', 'chat3']
+
+# Create a Telegram bot instance
+bot = telegram.Bot(token=bot_token)
+
+# Define a function to handle incoming messages
+def message_handler(update, context):
+    # Get the message text and chat ID
+    message_text = update.message.text
+    chat_id = update.message.chat_id
+    
+    # Check if any of the keywords are in the message text
+    has_keyword = False
+    for keyword in keywords:
+        if keyword in message_text.lower():
+            has_keyword = True
+            break
+    
+    # Check if any of the exclusion keywords are in the message text
+    has_exclusion_keyword = False
+    for exclusion_keyword in exclusion_keywords:
+        if exclusion_keyword in message_text.lower():
+            has_exclusion_keyword = True
+            break
+    
+    # If a keyword is found and no exclusion keyword is found, send a message to the specified chat with the user and message data
+    if has_keyword and not has_exclusion_keyword:
+        message = f"Keyword '{keyword}' found in chat {chat_id}: \n\nUser: {update.message.from_user.first_name} {update.message.from_user.last_name} ({update.message.from_user.username}) \n\nMessage: {message_text}"
+        bot.send_message(chat_id=chat_id, text=message)
+
+# Set up the Telegram bot updater and dispatcher
+updater = Updater(token=bot_token, use_context=True)
+dispatcher = updater.dispatcher
+
+# Add the message handler to the dispatcher
+message_handler = MessageHandler(Filters.text & Filters.chat(chats_to_search), message_handler)
+dispatcher.add_handler(message_handler)
+
+# Start the bot
+updater.start_polling()
