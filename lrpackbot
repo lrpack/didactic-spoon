@@ -2,15 +2,15 @@ import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # Set up the Telegram bot token and chat ID
-bot_token = 'YOUR_BOT_TOKEN_HERE'
-chat_id = 'YOUR_CHAT_ID_HERE'
+bot_token = '6021670434:AAH8VCwHNDcbLOxQUmBXvxvANXEaASAuXf4'
+chat_id = '-680176539'
 
 # Set up the keywords and exclusion keywords to search for
-keywords = ['keyword1', 'keyword2', 'keyword3']
-exclusion_keywords = ['exclusion1', 'exclusion2', 'exclusion3']
+keywords = ['фулфилмент', 'упаковка', 'хранить']
+exclusion_keywords = ['Предоставляю', 'хочу sпредложить', '#отчет', '@fulfillment_mpbot', 'Мы помогаем', 'Предлагаем услуги', 'Поможем', 'СЕГОДНЯ ЭФИР', 'помогу', 'Предлагаю', 'Мы развиваем услугу', 'мы занимаемся фулфилмент', 'Для расчета стоимости', 'требуется сотрудник', 'Правила', 'Предлагаем', 'Упакуем', 'fulfillmentN1', 'привлекаю', 'с моим', 'заберём', 'СКИДКА', 'требуется', 'менеджер', 'Занимаемся', 'Выкупим', 'отгрузим', 'готовый бизнес', 'писать в чат', 'reklama chatov', 'Предоставляем услуги', 'нуждаетесь в услугах', 'связаться', 'есть свой', 'Приглашаем', 'Воркшоп', 'могу стать', 'у меня фулфилмент', 'deleted', 'message']
 
 # Set up the chats to search in
-chats_to_search = ['chat1', 'chat2', 'chat3']
+chats_to_search = ['-1001872178495', '-1001745039179', '-1001618313209' '-1001754082902''-1001571738379''-1001745535441''-1001610967539']
 
 # Create a Telegram bot instance
 bot = telegram.Bot(token=bot_token)
