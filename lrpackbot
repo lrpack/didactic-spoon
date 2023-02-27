@@ -2,7 +2,7 @@ import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # Set up the Telegram bot token and chat ID
-bot_token = '6021670434:AAH8VCwHNDcbLOxQUmBXvxvANXEaASAuXf4'
+bot_token = '____________'
 chat_id = '-680176539'
 
 # Set up the keywords and exclusion keywords to search for
